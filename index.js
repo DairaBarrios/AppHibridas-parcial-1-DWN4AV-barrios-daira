@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose"
 import "dotenv/config"
 import autores_routes from "./routes/autores_routes.js"
+import libros_routes from "./routes/libros_routes.js"
 import auth from "./routes/auth.js"
 
 mongoose
@@ -15,10 +16,8 @@ mongoose
 const index = express()
 index.use(express.json())
 index.use(express.urlencoded({extended: true}))
-// index.use("/users", user_routes)
-// index.use("/cursos", cursos_routes)
-// index.use("/login", auth)
 index.use("/autores", autores_routes)
+index.use("/libros", libros_routes)
 index.use("/login", auth)
 
 
