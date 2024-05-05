@@ -19,10 +19,6 @@ const autorSchema = new mongoose.Schema({
     fechaNacimiento: {
         type: Date,
         required: true
-    },
-    activo: {
-        type: Boolean,
-        default: true
     }
 });
 

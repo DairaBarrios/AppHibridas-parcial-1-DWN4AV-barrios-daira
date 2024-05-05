@@ -49,12 +49,4 @@ async function updateAutor(id, autor) {
     }, {new: true});
 }
 
-async function deactivateAutor(id) {
-    return Autores.findByIdAndUpdate(id, {
-        $set: {
-            activo: false
-        }
-    }, {new: true});
-}
-
-export {createAutor, getAutores, getAutor, updateAutor, deactivateAutor};
+export {createAutor, getAutores, getAutor, updateAutor};
