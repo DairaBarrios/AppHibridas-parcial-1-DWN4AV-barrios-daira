@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Primer Parcial App Hibridas</title>
-    <style>
-       body{
-           font-family: Arial, sans-serif;
-           box-sizing: border-box;
-           padding: 20px;
-           margin: 15px;
-       }
-       h1{
-           text-align: center;
-       }
-       footer {
-           background-color: blanchedalmond;
-           padding: 20px;
-       }
+    <style> <!--
+    Se que no esta bien agregar estilos en el html pero me estaba dando un patatus verlo sin nada. No pude entender como agregar un archivo .css
+    body {
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        padding: 20px;
+        margin: 15px;
+    }
 
-       footer ul {
-           list-style-type: none;
-           padding: 0;
-           display: flex;
-           justify-content: space-between;
-       }
+    h1 {
+        text-align: center;
+    }
 
-       footer li {
-           margin: 0 10px;
-       }
+    footer {
+        background-color: blanchedalmond;
+        padding: 20px;
+    }
 
-       footer p {
-           font-weight: bold;
-           margin: 0;
-       }
+    footer ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer li {
+        margin: 0 10px;
+    }
+
+    footer p {
+        font-weight: bold;
+        margin: 0;
+    }
     </style>
 </head>
 <body>
@@ -42,23 +45,26 @@
 <section>
     <h2>RBooks</h2>
     <p>
-        "La API tiene la utilidad de gestionar libros para una biblioteca. Simplifica la carga, edición, eliminación y filtrado de libros. El usuario puede agregar, actualizar y eliminar libros fácilmente. Además, puede filtrar libros según el género o fecha de publicación, simplificando así la búsqueda y selección de lecturas específicas."</p>
+        "La API tiene la utilidad de gestionar libros para una biblioteca. Simplifica la carga, edición, eliminación y
+        filtrado de libros. El usuario puede agregar, actualizar y eliminar libros fácilmente. Además, puede filtrar
+        libros según el género o fecha de publicación, simplificando así la búsqueda y selección de lecturas
+        específicas."</p>
 
 </section>
 <section>
     <h2>Endpoints</h2>
     <h3>Login</h3>
-            <h4>POST /login</h4>
-            <p>Permite iniciar sesión en la aplicación.</p>
-            <h5>Body:</h5>
-            <ul>
-                <li>
-                    <p>email: string</p>
-                </li>
-                <li>
-                    <p>password: string</p>
-                </li>
-            </ul>
+    <h4>POST /login</h4>
+    <p>Permite iniciar sesión en la aplicación.</p>
+    <h5>Body:</h5>
+    <ul>
+        <li>
+            <p>email: string</p>
+        </li>
+        <li>
+            <p>password: string</p>
+        </li>
+    </ul>
 
     <h3>Autores</h3>
     <p>Se requiere mandar por header auth el jwt.</p>
@@ -77,7 +83,8 @@
                 <li>campoOrdenamiento</li>
                 <li>direccionOrdenamiento</li>
             </ul>
-        </li>                       <p>aInicio y fechaFin es el rango de busqueda para fecha de nacimiento</p>
+        </li>
+        <p>aInicio y fechaFin es el rango de busqueda para fecha de nacimiento</p>
         <li>
             <h4>POST /autores</h4>
             <p>Permite agregar un autor.</p>
@@ -124,7 +131,7 @@
             <p>Devuelve un autor por id.</p>
             <h5>Path params:</h5>
 
-                <p>id: id del autor a buscar</p>
+            <p>id: id del autor a buscar</p>
 
         </li>
     </ul>
