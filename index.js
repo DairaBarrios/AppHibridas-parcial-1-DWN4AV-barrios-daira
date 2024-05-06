@@ -20,6 +20,8 @@ index.use("/autores", autores_routes)
 index.use("/libros", libros_routes)
 index.use("/login", auth)
 
+index.use(express.static("public"));
+
 
 const port = process.env.PORT || 3002
 index.listen(port)

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Primer Parcial App Hibridas</title>
+    <style>
+       body{
+           font-family: Arial, sans-serif;
+           box-sizing: border-box;
+           padding: 20px;
+           margin: 15px;
+       }
+       h1{
+           text-align: center;
+       }
+       footer {
+           background-color: blanchedalmond;
+           padding: 20px;
+       }
+
+       footer ul {
+           list-style-type: none;
+           padding: 0;
+           display: flex;
+           justify-content: space-between;
+       }
+
+       footer li {
+           margin: 0 10px;
+       }
+
+       footer p {
+           font-weight: bold;
+           margin: 0;
+       }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Primer Parcial App Hibridas</h1>
+</header>
+<section>
+    <h2>RBooks</h2>
+    <p>
+        "La API tiene la utilidad de gestionar libros para una biblioteca. Simplifica la carga, edición, eliminación y filtrado de libros. El usuario puede agregar, actualizar y eliminar libros fácilmente. Además, puede filtrar libros según el género o fecha de publicación, simplificando así la búsqueda y selección de lecturas específicas."</p>
+
+</section>
+<section>
+    <h2>Endpoints</h2>
+    <h3>Login</h3>
+            <h4>POST /login</h4>
+            <p>Permite iniciar sesión en la aplicación.</p>
+            <h5>Body:</h5>
+            <ul>
+                <li>
+                    <p>email: string</p>
+                </li>
+                <li>
+                    <p>password: string</p>
+                </li>
+            </ul>
+
+    <h3>Autores</h3>
+    <p>Se requiere mandar por header auth el jwt.</p>
+    <ul>
+        <li>
+            <h4>GET /autores</h4>
+            <p>Devuelve la lista de autores paginados.</p>
+            <h5>Query params:</h5>
+            <ul>
+                <li>nombre</li>
+                <li>nacionalidad</li>
+                <li>fechaInicio</li>
+                <li>fechaFin</li>
+                <li>page</li>
+                <li>limit</li>
+                <li>campoOrdenamiento</li>
+                <li>direccionOrdenamiento</li>
+            </ul>
+        </li>                       <p>aInicio y fechaFin es el rango de busqueda para fecha de nacimiento</p>
+        <li>
+            <h4>POST /autores</h4>
+            <p>Permite agregar un autor.</p>
+            <h5>Body:</h5>
+            <ul>
+                <li>
+                    <p>nombre: string</p>
+                </li>
+                <li>
+                    <p>apellido: string</p>
+                </li>
+                <li>
+                    <p>nacionalidad: string</p>
+                </li>
+                <li>
+                    <p>fechaNacimiento: string</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>PUT /autores/:id</h4>
+            <p>Permite actualizar un autor.</p>
+            <h5>Path params:</h5>
+            <p>id: id del autor a modificar</p>
+
+            <h5>Body:</h5>
+            <ul>
+                <li>
+                    <p>nombre: string</p>
+                </li>
+                <li>
+                    <p>apellido: string</p>
+                </li>
+                <li>
+                    <p>nacionalidad: string</p>
+                </li>
+                <li>
+                    <p>fechaNacimiento: string</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>GET /autores/:id</h4>
+            <p>Devuelve un autor por id.</p>
+            <h5>Path params:</h5>
+
+                <p>id: id del autor a buscar</p>
+
+        </li>
+    </ul>
+    <h3>Libros</h3>
+    <p>Se requiere mandar por header auth el jwtoken.</p>
+    <ul>
+        <li>
+            <h4>GET /libros</h4>
+            <p>Devuelve la lista de libros activos paginados.</p>
+            <h5>Query params:</h5>
+            <ul>
+                <li>titulo</li>
+                <li>genero</li>
+                <li>nroPaginasInicio</li>
+                <li>nroPaginasFin</li>
+                <li>page</li>
+                <li>limit</li>
+                <li>campoOrdenamiento</li>
+                <li>direccionOrdenamiento</li>
+            </ul>
+        </li>
+        <li>
+            <h4>POST /libros</h4>
+            <p>Permite agregar un libros.</p>
+            <h5>Body:</h5>
+            <ul>
+                <li>
+                    <p>titulo: string</p>
+                </li>
+                <li>
+                    <p>autor: string</p>
+                </li>
+                <li>
+                    <p>genero: string</p>
+                </li>
+                <li>
+                    <p>isbn: number</p>
+                </li>
+                <li>
+                    <p>editorial: string</p>
+                </li>
+                <li>
+                    <p>imagen: string</p>
+                </li>
+                <li>
+                    <p>fechaPublicacion: date</p>
+                </li>
+                <li>
+                    <p>paginas: number</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>PUT /libros/:id</h4>
+            <p>Permite actualizar un libro.</p>
+            <h5>Path params:</h5>
+            <p>id: id del libro a modificar</p>
+
+            <h5>Body:</h5>
+            <ul>
+                <li>
+                    <p>titulo: string</p>
+                </li>
+                <li>
+                    <p>autor: string</p>
+                </li>
+                <li>
+                    <p>genero: string</p>
+                </li>
+                <li>
+                    <p>isbn: number</p>
+                </li>
+                <li>
+                    <p>editorial: string</p>
+                </li>
+                <li>
+                    <p>imagen: string</p>
+                </li>
+                <li>
+                    <p>fechaPublicacion: date</p>
+                </li>
+                <li>
+                    <p>paginas: number</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>GET /libros/:id</h4>
+            <p>Devuelve un libro por id.</p>
+            <h5>Path params:</h5>
+
+            <p>id: id del libro a buscar</p>
+
+        </li>
+        <li>
+            <h4>DELETE /libros/:id</h4>
+            <p>Desactiva un libro por id.</p>
+            <h5>Path params:</h5>
+            <p>id: id del libro a desactivar</p>
+        </li>
+        <li>
+            <h4>PUT /libros/activar/:id</h4>
+            <p>Activa un libro por id.</p>
+            <h5>Path params:</h5>
+            <p>id: id del libro a activar</p>
+        </li>
+    </ul>
+
+</section>
+<footer>
+    <ul>
+        <li>
+            <p>Prof. Camila Marcos Galban</p>
+        </li>
+        <li>
+            <p>Materia: Aplicaciones Hibridas</p>
+        </li>
+        <li>
+            <p>Alumno: Barrios Daira Belén</p>
+        </li>
+        <li>
+            <p>Comisión: DWN4AV</p>
+        </li>
+        <li>
+            <p>2024</p>
+        </li>
+    </ul>
+</footer>
+</body>
+</html>
