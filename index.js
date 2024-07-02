@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import mongoose from "mongoose"
 import "dotenv/config"
 import autores_routes from "./routes/autores_routes.js"
@@ -13,12 +14,16 @@ mongoose
 // mongodump --db=cursos
 // mongorestore --uri mongodb+srv://milamarcos98:1234@cluster0.khxruqc.mongodb.net/clase12v "C:\Users\Alumno\Desktop\dump\dump\cursos"
 
+
 const index = express()
+
+index.use(cors())
+
 index.use(express.json())
 index.use(express.urlencoded({extended: true}))
 index.use("/autores", autores_routes)
 index.use("/libros", libros_routes)
-index.use("/login", auth)
+index.use("/users", auth)
 
 index.use(express.static("public"));
 

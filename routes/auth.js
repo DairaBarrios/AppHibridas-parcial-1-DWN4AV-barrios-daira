@@ -6,7 +6,7 @@ import "dotenv/config"
 
 const ruta = express.Router()
 
-ruta.post('/', (req, res) => {
+ruta.post('/login', (req, res) => {
     Usuario.findOne({email: req.body.email})
     .then(data => {
         if(data){
@@ -32,5 +32,34 @@ ruta.post('/', (req, res) => {
         }
     })
 })
+
+ruta.post('/register', async (req, res) => {
+    const { email, nombre, password } = req.body;
+
+    // Verificar que la contraseña no esté vacía
+    if (!password || !email || !nombre) {
+        return res.status(400).json({ msj: "La contraseña o usuario no pueden estar vacía" });
+    }
+
+    // Verificar que el nombre de usuario no esté ya en uso
+    const usuarioExistente = await Usuario.findOne({ email });
+    if (usuarioExistente) {
+        return res.status(400).json({ msj: "El nombre de usuario ya está en uso" });
+    }
+
+    // Crear un nuevo usuario
+    const nuevoUsuario = new Usuario({
+        email,
+        nombre,
+        password: bcrypt.hashSync(password, 10) // Encriptar la contraseña
+    });
+
+    try {
+        await nuevoUsuario.save();
+        res.status(201).json({ msj: "Usuario registrado exitosamente" });
+    } catch (error) {
+        res.status(500).json({ msj: "Error al registrar el usuario", error });
+    }
+});
 
 export default ruta;
